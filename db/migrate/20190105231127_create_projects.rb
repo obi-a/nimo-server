@@ -5,6 +5,8 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :uuid
 
+      t.references :owner
+
       t.timestamps
     end
   end
