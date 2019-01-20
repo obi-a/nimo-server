@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "737f49ab-816a-4f49-b70f-a4dfeafcaed1",
+		"name": "Nimo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstname",
+							"value": "obiora",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "akubue",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "obi.akubue@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/people",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"people"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "obi.akubue@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "firstname",
+							"value": "obi",
+							"disabled": true
+						},
+						{
+							"key": "lastname",
+							"value": "akubue",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/people/f96d5a38-322d-4143-a4de-a120f9d76926",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"people",
+						"f96d5a38-322d-4143-a4de-a120f9d76926"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Project",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Get things done",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "get things done",
+							"type": "text"
+						},
+						{
+							"key": "owner_id",
+							"value": "4002c993-7ebb-4ee8-9290-a4fe21fde8ef",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"projects"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Wedding Planning",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "getting things done on time",
+							"disabled": true
+						},
+						{
+							"key": "owner_id",
+							"value": "847028b8-1c18-441b-8764-6b76ba703465",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Project",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/projects/f07b2db9-fb0b-4c26-8045-9f19e0efc247",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"projects",
+						"f07b2db9-fb0b-4c26-8045-9f19e0efc247"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "summary",
+							"value": "buy beer",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "buy beer in elizabeth",
+							"type": "text"
+						},
+						{
+							"key": "creator_id",
+							"value": "4e9868fc-eb11-4091-ac48-7252013ec68a",
+							"type": "text"
+						},
+						{
+							"key": "project_id",
+							"value": "64534a4b-e34c-470b-84a3-41aa10de98c4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/tickets",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "summary",
+							"value": "buy beer",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "buy beer in elizabeth",
+							"disabled": true
+						},
+						{
+							"key": "creator_id",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/tickets/13cd13f3-c2e7-4a90-ad7a-87297eef1d95",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tickets",
+						"13cd13f3-c2e7-4a90-ad7a-87297eef1d95"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transition Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/tickets/13cd13f3-c2e7-4a90-ad7a-87297eef1d95/transition/7786cc96-0f7a-48af-bf2e-290a5b108fe3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tickets",
+						"13cd13f3-c2e7-4a90-ad7a-87297eef1d95",
+						"transition",
+						"7786cc96-0f7a-48af-bf2e-290a5b108fe3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Ticket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "summary",
+							"value": "Wedding Planning now",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Running around for wedding",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/tickets/13cd13f3-c2e7-4a90-ad7a-87297eef1d95",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tickets",
+						"13cd13f3-c2e7-4a90-ad7a-87297eef1d95"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
