@@ -4,11 +4,18 @@ class PeopleController < ApplicationController
   def create
     @person = Person.create!(person_params)
     @person.create_user!
-    json_response(@person, :created)
+    json_response(
+      @person,
+      include: {user: :groups},
+      status: :created
+    )
   end
 
   def show
-    json_response(@person)
+    json_response(
+      @person,
+      include: {user: :groups}
+    )
   end
 
   def update

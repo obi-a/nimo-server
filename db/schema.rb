@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_01_06_002736) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "uuid"
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,10 +74,12 @@ ActiveRecord::Schema.define(version: 2019_01_06_002736) do
     t.integer "creator_id"
     t.integer "assignee_id"
     t.integer "workflow_id"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assignee_id"], name: "index_tickets_on_assignee_id"
     t.index ["creator_id"], name: "index_tickets_on_creator_id"
+    t.index ["project_id"], name: "index_tickets_on_project_id"
     t.index ["workflow_id"], name: "index_tickets_on_workflow_id"
   end
 
@@ -124,5 +127,4 @@ ActiveRecord::Schema.define(version: 2019_01_06_002736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end

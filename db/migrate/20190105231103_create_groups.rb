@@ -3,6 +3,7 @@ class CreateGroups < ActiveRecord::Migration[5.2]
     create_table :groups do |t|
       t.string :name
       t.text :description
+      t.string :uuid
 
       t.references :owner
 

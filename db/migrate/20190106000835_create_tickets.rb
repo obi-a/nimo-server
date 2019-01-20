@@ -8,6 +8,7 @@ class CreateTickets < ActiveRecord::Migration[5.2]
       t.references :creator
       t.references :assignee
       t.references :workflow
+      t.references :project
 
       t.timestamps
     end
