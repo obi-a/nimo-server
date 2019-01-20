@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :people
   resources :users
-  resources :tickets
+  resources :tickets do
+    member do
+      put 'transition/:transition_id' => 'tickets#transition'
+    end
+  end
   resources :workflows
   resources :projects
 end

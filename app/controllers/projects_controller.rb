@@ -8,13 +8,15 @@ class ProjectsController < ApplicationController
 
     raise ProjectOwnerNotFound unless owner.present?
 
-    @project = Project.create!(
-      name:        project_params[:name],
-      description: project_params[:description],
-      owner:       owner
-    )
+    Project.transaction do
+      @project = Project.create!(
+        name:        project_params[:name],
+        description: project_params[:description],
+        owner:       owner
+      )
 
-    @project.groups << owner.default_group
+      @project.groups << owner.default_group
+    end
 
     json_response(
       @project,
@@ -25,7 +27,7 @@ class ProjectsController < ApplicationController
   def show
     json_response(
       @project,
-      include: 'tickets'
+      include: [tickets: [events: :transition, workflow: :transitions]]
     )
   end
 

@@ -13,11 +13,14 @@
 ActiveRecord::Schema.define(version: 2019_01_06_002736) do
 
   create_table "events", force: :cascade do |t|
+    t.string "uuid"
     t.integer "transition_id"
     t.integer "status_id"
+    t.integer "ticket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["status_id"], name: "index_events_on_status_id"
+    t.index ["ticket_id"], name: "index_events_on_ticket_id"
     t.index ["transition_id"], name: "index_events_on_transition_id"
   end
 
@@ -127,4 +130,5 @@ ActiveRecord::Schema.define(version: 2019_01_06_002736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
