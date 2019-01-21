@@ -9,4 +9,16 @@ class Ticket < ApplicationRecord
   belongs_to :project
 
   has_many   :events
+
+  def last_event
+    events&.last
+  end
+
+  def last_transition
+    last_event.transition
+  end
+
+  def current_status
+    last_event&.status
+  end
 end

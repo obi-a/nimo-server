@@ -1,9 +1,10 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :update, :transition]
 
-  class TicketProjectNotFound; end
-  class TicketCreatorNotFound; end
-  class NewTransitionNotFound; end
+  class TicketProjectNotFound < StandardError; end
+  class TicketCreatorNotFound < StandardError; end
+  class NewTransitionNotFound < StandardError; end
+  class CannotTransitionToNewTransition < StandardError; end
 
   WORKFLOW = Workflow.first.freeze # use the workflow from the database seed
   PENDING_STATUS = Status.find_by_name('Pending')
@@ -52,6 +53,13 @@ class TicketsController < ApplicationController
 
     raise NewTransitionNotFound unless new_transition.present?
 
+    unless can_transition?(new_transition)
+      raise(
+        CannotTransitionToNewTransition.new(new_transition),
+        "cannot transition from '#{@ticket.last_transition.uuid}' to '#{new_transition.uuid}'"
+      )
+    end
+
     @ticket.events.create!(
       transition: new_transition,
       status:     new_transition.end
@@ -69,6 +77,11 @@ class TicketsController < ApplicationController
   end
 
   private
+
+  def can_transition?(new_transition)
+    new_transition.start == @ticket.current_status
+  end
+
 
   def ticket_params
     # whitelist params
